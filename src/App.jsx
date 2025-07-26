@@ -12,7 +12,11 @@ export default function App() {
     <div className="font-sans bg-sky-100 text-gray-800">
       <Header />
       <main className="space-y-24 p-4 max-w-4xl mx-auto">
-        <img className="w-80 h-80 mx-auto" src="/dye_blue.svg" alt="DyE"/>
+        <img
+          src={`${import.meta.env.BASE_URL}dye_blue.svg`}
+          alt="Daniela & Elmer"
+          className="w-80 h-80 mx-auto"
+        />
         <Countdown />
         {/* <Story /> */}
         {/* <Gallery /> */}
