@@ -23,7 +23,7 @@ export default function Countdown() {
     }, []);
 
     return (
-    <section className="text-center">
+    <section className="text-center bg-blue-40">
         <h2 className="text-3xl font-semibold text-sky-800 mb-4">Faltan...</h2>
         <div className="text-2xl font-mono text-sky-700 space-x-4">
         <span>{timeLeft.days} días</span>
