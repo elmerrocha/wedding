@@ -24,8 +24,13 @@ export default function Countdown() {
 
     return (
     <section className="text-center bg-blue-40">
-        <h2 className="text-3xl font-semibold text-sky-800 mb-4">Faltan...</h2>
-        <div className="text-2xl font-mono text-sky-700 space-x-4">
+        <img
+            src={`${import.meta.env.BASE_URL}poster.webp`}
+            alt="Daniela & Elmer"
+            className="w-full max-w-xl mx-auto mb-4"
+        />
+        <h2 className="text-6xl font-vibes text-sky-800 mt-20">Faltan...</h2>
+        <div className="text-5xl font-vibes text-sky-700 space-x-4">
         <span>{timeLeft.days} días</span>
         <span>{timeLeft.hours}h</span>
         <span>{timeLeft.minutes}m</span>
