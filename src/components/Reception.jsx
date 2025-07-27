@@ -2,11 +2,11 @@ export default function Reception() {
     return (
         <section className="text-center px-4">
             <img
-                src={`${import.meta.env.BASE_URL}reception_icon.svg`}
+                src={`${import.meta.env.BASE_URL}reception_icon_rustic.svg`}
                 alt="Church icon"
                 className="w-40 h-40 mx-auto"
             />
-        <h2 className="text-6xl font-vibes text-sky-800 my-4">Recepción</h2>
+        <h2 className="text-6xl font-vibes text-verdeOscuro my-4">Recepción</h2>
         <p className="text-4xl font-vibes">
             Hacienda El Ensueño<br />Ruitoque Alto
         </p>
