@@ -2,9 +2,14 @@ export default function Ceremony() {
     return (
         <section className="text-center px-4">
             <img
+                src={`${import.meta.env.BASE_URL}church.webp`}
+                alt="Church"
+                className="w-full max-w-xl mx-auto"
+            />
+            <img
                 src={`${import.meta.env.BASE_URL}church_icon_rustic.svg`}
                 alt="Church icon"
-                className="w-40 h-40 mx-auto"
+                className="w-40 h-40 mx-auto mt-10"
             />
         <h2 className="text-6xl font-vibes text-verdeOscuro my-4">Ceremonia</h2>
         <p className="text-4xl font-vibes">
