@@ -35,7 +35,7 @@ const Gallery = () => {
             <motion.div
                 key={i}
                 className="bg-white shadow-lg rounded overflow-hidden cursor-pointer w-64 flex-shrink-0"
-                style={{ borderBottom: '40px solid #F7F4ED' }}
+                style={{ borderBottom: '40px solid #FFFFFF' }}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: i * 0.15 }}
