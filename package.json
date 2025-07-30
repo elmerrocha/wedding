@@ -11,6 +11,8 @@
     "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
+    "framer-motion": "^12.23.11",
+    "lottie-react": "^2.4.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "yet-another-react-lightbox": "^3.25.0"

@@ -1,6 +1,9 @@
-import { useState } from "react";
-import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
+import photoIcon from '../assets/camera.json';
+import Lottie from 'lottie-react';
 
 const photos = [
     { src: "/gallery/photo1.webp" },
@@ -15,36 +18,42 @@ const Gallery = () => {
     const [open, setOpen] = useState(false);
     const [index, setIndex] = useState(0);
 
-    const openLightbox = (idx) => {
-        setIndex(idx);
-        setOpen(true);
-    };
-
     return (
-        <section id="galeria" className="bg-[#F7F4ED] py-12">
-        <h2 className="text-center text-6xl font-vibes text-[#556B2F] mb-8">
-            Nuestros Momentos
+        <motion.section
+        className="bg-cremarustico py-16 px-4"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        >
+        <h2 className="text-4xl text-center font-vibes text-verdeOscuro -mb-16">
+            Nuestros momentos
         </h2>
-        <div className="overflow-x-auto whitespace-nowrap no-scrollbar px-6">
-            <div className="inline-flex gap-4">
-            {photos.map((photo, idx) => (
-                <div
-                key={idx}
-                onClick={() => openLightbox(idx)}
-                className="bg-white shadow-md border border-gray-300 w-64 h-80 rounded-sm p-2 cursor-pointer flex flex-col justify-start items-center"
-                >
+        <Lottie animationData={photoIcon} loop className="w-80 h-80 mx-auto" />
+        <div className="overflow-x-auto flex space-x-4 px-4 scrollbar-hide -mt-20">
+            {photos.map((img, i) => (
+            <motion.div
+                key={i}
+                className="bg-white shadow-lg rounded overflow-hidden cursor-pointer w-64 flex-shrink-0"
+                style={{ borderBottom: '40px solid #F7F4ED' }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: i * 0.15 }}
+                onClick={() => {
+                setIndex(i);
+                setOpen(true);
+                }}
+            >
                 <img
-                    src={photo.src}
-                    alt={`Foto ${idx + 1}`}
-                    className="object-cover w-full h-[80%] border border-gray-200"
+                src={img.src}
+                alt={`galería ${i + 1}`}
+                className="w-full h-72 object-cover"
                 />
-                <div className="h-[20%] w-full"></div>
-                </div>
+            </motion.div>
             ))}
-            </div>
         </div>
-        <Lightbox open={open} close={() => setOpen(false)} slides={photos} index={index} />
-        </section>
+        <Lightbox open={open} close={() => setOpen(false)} index={index} slides={photos} />
+        </motion.section>
     );
 };
 

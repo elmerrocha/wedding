@@ -1,106 +1,114 @@
-import { useState } from "react";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import Lottie from 'lottie-react';
+import envelopeAnim from '../assets/envelope.json';
 
-export default function Rsvp() {
-    const [form, setForm] = useState({
-    nombre: "",
-    asistencia: "Sí",
-    acompanantes: "0",
-    comentarios: ""
+const Rsvp = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        attendance: '',
+        guests: '0',
+        message: '',
     });
-    const [mensaje, setMensaje] = useState("");
+
+    const [status, setStatus] = useState('');
 
     const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+        setFormData({
+        ...formData,
+        [e.target.name]: e.target.value,
+        });
     };
 
     const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!form.nombre.trim()) {
-        setMensaje("Por favor, ingresa tu nombre completo.");
-    return;
-    }
+        e.preventDefault();
 
-    try {
-        const res = await fetch("https://script.google.com/macros/s/AKfycbyOcMaHHrL-X-kHzBRLrMrGG_woxKDPFGymeEO7SB0emy6CN4mRzW1zOfWoRatHDbu7/exec", {
-        method: "POST",
-        body: JSON.stringify(form),
-        headers: {
-            "Content-Type": "application/json"
+        if (!formData.name) {
+        setStatus('Por favor, ingresa tu nombre.');
+        return;
         }
-        });
-        const result = await res.json();
-        if (result.success) {
-            setMensaje("¡Gracias por confirmar tu asistencia!");
-            setForm({ nombre: "", asistencia: "Sí", acompanantes: "0", comentarios: "" });
-        } else {
-            setMensaje("Hubo un error. Intenta de nuevo más tarde.");
+
+        try {
+        const response = await fetch(
+            'https://script.google.com/macros/s/AKfycbyOcMaHHrL-X-kHzBRLrMrGG_woxKDPFGymeEO7SB0emy6CN4mRzW1zOfWoRatHDbu7/exec',
+            {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+            }
+        );
+        console.log(response);
+        setStatus('¡Gracias por confirmar tu asistencia!');
+        setFormData({ name: '', attendance: '', guests: '0', message: '' });
+        } catch (error) {
+            console.log(error);
+            setStatus('Hubo un error. Intenta de nuevo más tarde.');
         }
-    } catch (err) {
-        console.error(err);
-        setMensaje("Hubo un error. Intenta de nuevo más tarde.");
-    }
     };
 
     return (
-    <section className="bg-cremarustico font-vibes text-verdeOscuro py-16 px-4">
-        <h2 className="text-5xl font-vibes text-center mb-8">Confirmar asistencia</h2>
-
-        <form onSubmit={handleSubmit} className="max-w-xl mx-auto space-y-4 font-vibes">
-        <input
+        <motion.div
+        className="bg-cremarustico pb-12 px-4 text-center"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2.0 }}
+        viewport={{ once: true }}
+        >
+        <Lottie animationData={envelopeAnim} loop className="w-48 h-48 mx-auto mb" />
+        <h2 className="text-5xl text-verdeOscuro font-vibes mb-8">Confirmar asistencia</h2>
+        <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-4">
+            <input
             type="text"
-            name="nombre"
-            value={form.nombre}
-            onChange={handleChange}
+            name="name"
             placeholder="Nombre completo"
-            required
-            className="w-full border border-gray-300 p-3 rounded"
-        />
-
-        <select
-            name="asistencia"
-            value={form.asistencia}
+            value={formData.name}
             onChange={handleChange}
-            className="w-full border border-gray-300 p-3 font-vibes rounded"
-        >
-            <option value="Sí">🎉 Sí asistiré</option>
-            <option value="No">😢 No puedo asistir</option>
-        </select>
-
-        <select
-            name="acompanantes"
-            value={form.acompanantes}
+            className="w-full p-3 border border-beige rounded focus:outline-none focus:ring focus:border-verdeClaro"
+            />
+            <select
+            name="attendance"
+            value={formData.attendance}
             onChange={handleChange}
-            className="w-full border border-gray-300 p-3 rounded font-vibes"
-        >
+            className="w-full p-3 border border-beige rounded"
+            >
+            <option value="">Selecciona una opción</option>
+            <option value="Si">🎉 Sí asistiré</option>
+            <option value="No">😔 No puedo asistir</option>
+            </select>
+            <select
+            name="guests"
+            value={formData.guests}
+            onChange={handleChange}
+            className="w-full p-3 border border-beige rounded"
+            >
             <option value="0">0 acompañantes</option>
             <option value="1">1 acompañante</option>
             <option value="2">2 acompañantes</option>
             <option value="3">3 acompañantes</option>
-        </select>
-
-        <p className="text-sm font-vibes text-marron italic">
+            </select>
+            <p className="text-sm italic text-marron">
             Por favor, selecciona solo el número de acompañantes indicados en tu invitación. 🙏
-        </p>
-
-        <textarea
-            name="comentarios"
-            value={form.comentarios}
+            </p>
+            <textarea
+            name="message"
+            placeholder="Mensaje adicional (opcional)"
+            value={formData.message}
             onChange={handleChange}
-            placeholder="Comentarios adicionales (opcional)"
-            className="w-full border border-gray-300 p-3 rounded font-vibes"
-            rows="3"
-        />
-
-        <button
+            className="w-full p-3 border border-beige rounded h-24"
+            ></textarea>
+            <button
             type="submit"
-            className="bg-verdeClaro text-white px-6 py-3 rounded hover:bg-verdeOscuro transition font-vibes"
-        >
+            className="bg-verdeOscuro text-white px-6 py-2 rounded hover:bg-verdeClaro transition"
+            >
             Enviar confirmación
-        </button>
+            </button>
         </form>
-
-        {mensaje && <p className="text-center mt-6 text-lg">{mensaje}</p>}
-    </section>
+        {status && <p className="mt-4 text-marron font-semibold">{status}</p>}
+        </motion.div>
     );
-}
+};
+
+export default Rsvp;

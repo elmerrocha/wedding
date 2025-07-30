@@ -16,7 +16,7 @@ export default function App() {
     <div className="bg-cremarustico text-verdeOscuro min-h-screen">
       <Header />
       <Blessing />
-      <main className="space-y-24 p-4 max-w-4xl mx-auto">
+      <main className="space-y-10 p-4 max-w-4xl mx-auto">
         <Countdown />
         <Gallery />
         <Ceremony />

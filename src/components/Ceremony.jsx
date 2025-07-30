@@ -1,16 +1,22 @@
+import { motion } from 'framer-motion';
+import churchAnim from '../assets/church.json';
+import Lottie from 'lottie-react';
+
 export default function Ceremony() {
     return (
-        <section className="text-center px-4">
-            <img
-                src={`${import.meta.env.BASE_URL}church.webp`}
-                alt="Church"
-                className="w-full max-w-xl mx-auto"
-            />
-            <img
-                src={`${import.meta.env.BASE_URL}church_icon_rustic.svg`}
-                alt="Church icon"
-                className="w-40 h-40 mx-auto mt-10"
-            />
+        <motion.section
+        className="text-center px-4"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.8 }}
+        viewport={{ once: true }}
+        >
+        <img
+            src={`${import.meta.env.BASE_URL}church.webp`}
+            alt="Church"
+            className="w-full max-w-xl mx-auto mb-10"
+        />
+        <Lottie animationData={churchAnim} loop className="w-52 h-52 mx-auto" />
         <h2 className="text-6xl font-vibes text-verdeOscuro my-4">Ceremonia</h2>
         <p className="text-4xl font-vibes">
             Casa Sacerdotal San José<br />Floridablanca, Colombia
@@ -24,6 +30,6 @@ export default function Ceremony() {
             referrerPolicy="no-referrer-when-downgrade"
             title="Ubicación boda"
         ></iframe>
-        </section>
+        </motion.section>
     );
 }
