@@ -41,14 +41,14 @@ const Gifts = () => {
                 setTimeout(() => setCopied(false), 3000);
             }}
             >
-            <strong>Número de cuenta:</strong> 912-001868-48
-            {copied && (
-                <span className="text-green-600 text-base animate-bounce">✔️</span>
-            )}
-            </p>
+            <strong>Número de cuenta:</strong> 912-001868-48</p>
 
             {copied && (
-            <p className="text-verdeClaro text-sm mt-1 animate-pulse">
+                <p className="animate-bounce text-3xl">✔️</p>
+            )}
+
+            {copied && (
+            <p className="text-verdeClaro text-bold mt-1 animate-pulse">
                 ¡Número de cuenta copiado!
             </p>
             )}

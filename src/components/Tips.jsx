@@ -5,6 +5,7 @@ import clockAnim from '../assets/clock.json';
 import partyAnim from '../assets/party.json';
 import teddyAnim from '../assets/teddy.json';
 import envelopeAnim from '../assets/envelopeInvitation.json';
+import infoAnim from '../assets/information.json'
 
 const tips = [
     {
@@ -34,6 +35,7 @@ const Tips = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
         >
+        <Lottie animationData={infoAnim} loop className="w-28 h-28 mx-auto mt-10 mb-6" />
         <h2 className="text-center text-5xl font-vibes text-verdeOscuro mb-10">
             Tips para tener en cuenta
         </h2>

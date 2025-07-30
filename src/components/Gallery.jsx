@@ -26,11 +26,11 @@ const Gallery = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
         >
-        <h2 className="text-4xl text-center font-vibes text-verdeOscuro -mb-16">
+        <Lottie animationData={photoIcon} loop className="w-80 h-80 mx-auto -mb-24" />
+        <h2 className="text-6xl text-center font-vibes text-verdeOscuro mb-10 -mt-24">
             Nuestros momentos
         </h2>
-        <Lottie animationData={photoIcon} loop className="w-80 h-80 mx-auto" />
-        <div className="overflow-x-auto flex space-x-4 px-4 scrollbar-hide -mt-20">
+        <div className="overflow-x-auto flex space-x-4 px-4 scrollbar-hide">
             {photos.map((img, i) => (
             <motion.div
                 key={i}

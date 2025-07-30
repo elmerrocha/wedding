@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
 import dressAnim from '../assets/dress.json';
 import suitAnim from '../assets/suit.json';
+import colorPalette from '../assets/palette.json';
 
 const PinterestIcon = () => (
     <svg
@@ -24,6 +25,7 @@ const PinterestIcon = () => (
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
         >
+        <Lottie animationData={colorPalette} loop className="w-40 h-40 mx-auto mb-10" />
         <h2 className="text-6xl font-vibes text-verdeOscuro mb-10">Código de Vestimenta</h2>
         <img
             src={`${import.meta.env.BASE_URL}colors.webp`}
