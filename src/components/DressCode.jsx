@@ -81,7 +81,7 @@ const PinterestIcon = () => (
         </div>
 
         {/* Nota final */}
-        <p className="text-marron text-lg mt-10 max-w-3xl mx-auto font-medium">
+        <p className="text-marron mt-10 max-w-3xl mx-auto font-medium">
             <strong>Nota:</strong> Se recomienda evitar el uso de blanco, beige o verde oliva. También sugerimos llevar calzado cómodo y apropiado para césped.
         </p>
         </motion.section>
