@@ -13,11 +13,11 @@ export default function Blessing() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
         >
-        <Lottie animationData={doveAnim} loop className="w-full h-full mx-auto -my-10" />
+        <Lottie animationData={doveAnim} loop className="w-full md:w-96 h-full md:h-96 mx-auto -my-10" />
         <h2 className="text-5xl md:text-5xl font-vibes leading-tight mb-12">
             Con la bendición de Dios y nuestros queridos padres…
         </h2>
-        <div className="space-y-10 text-3xl md:text-2xl font-vibes max-w-3xl mx-auto px-1">
+        <div className="space-y-10 text-3xl font-vibes max-w-3xl mx-auto px-1">
             <div>
             <p className="italic">Gerson Hernando Gelvez Jurado</p>
             <p className="italic">Jacqueline Rodríguez Salazar</p>

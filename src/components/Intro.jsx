@@ -6,7 +6,7 @@ import useSound from 'use-sound';
 import weddingSong from '../assets/wedding-song.mp3';
 
 const Intro = ({ onOpen }) => {
-    const [play] = useSound(weddingSong, { volume: 0.5 });
+    const [play] = useSound(weddingSong, { volume: 0.4 });
     const lottieRef = useRef();
     const [hasClicked, setHasClicked] = useState(false);
 

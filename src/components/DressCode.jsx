@@ -28,7 +28,7 @@ const DressCode = () => {
             </p>
             </motion.div>
             <motion.div
-            className="bg-white p-6 rounded-lg shadow-lg"
+            className="bg-white p-6 rounded-lg shadow-lg mb"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
