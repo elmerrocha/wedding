@@ -6,6 +6,7 @@ import 'yet-another-react-lightbox/styles.css';
 import giftAnim from '../assets/gift.json';
 import qrImage from '../assets/qr.webp';
 import qrScan from '../assets/qrScan.json';
+import bankInfo from '../assets/bank.webp'
 
 const Gifts = () => {
     const [open, setOpen] = useState(false);
@@ -64,7 +65,7 @@ const Gifts = () => {
         <Lightbox
             open={open}
             close={() => setOpen(false)}
-            slides={[{ src: qrImage }]}
+            slides={[{ src: qrImage }, { src: bankInfo }]}
         />
         </motion.section>
     );

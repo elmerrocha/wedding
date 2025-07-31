@@ -17,7 +17,7 @@ export default function Blessing() {
         <h2 className="text-5xl md:text-5xl font-vibes leading-tight mb-12">
             Con la bendición de Dios y nuestros queridos padres…
         </h2>
-        <div className="space-y-10 text-3xl font-vibes max-w-3xl mx-auto px-1">
+        <div className="space-y-10 text-3xl font-vibes max-w-3xl mx-auto px-2">
             <div>
             <p className="italic">Gerson Hernando Gelvez Jurado</p>
             <p className="italic">Jacqueline Rodríguez Salazar</p>
