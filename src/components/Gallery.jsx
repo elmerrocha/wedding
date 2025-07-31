@@ -26,7 +26,7 @@ const Gallery = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
         >
-        <Lottie animationData={photoIcon} loop className="w-80 h-80 mx-auto -mb-24" />
+        <Lottie animationData={photoIcon} loop className="w-80 h-80 mx-auto -mb-24 -mt-24" />
         <h2 className="text-6xl text-center font-vibes text-verdeOscuro mb-10 -mt-24">
             Nuestros momentos
         </h2>
