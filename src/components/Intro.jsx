@@ -12,16 +12,16 @@ const Intro = ({ onOpen }) => {
     const [showToast, setShowToast] = useState(false);
     const [fadeOut, setFadeOut] = useState(false);
 
-    // Detectar iOS y mostrar toast animado 15 segundos
+    // Detectar iOS y mostrar toast por 10s con animación
     useEffect(() => {
         const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
         if (isIOS) {
         setShowToast(true);
-        const fadeTimer = setTimeout(() => setFadeOut(true), 13000); // comienza a desvanecer a los 13s
+        const fadeTimer = setTimeout(() => setFadeOut(true), 8000); // empieza a desvanecer a los 8s
         const removeTimer = setTimeout(() => {
             setShowToast(false);
             setFadeOut(false);
-        }, 15000); // lo elimina a los 15s
+        }, 10000); // desaparece a los 10s
         return () => {
             clearTimeout(fadeTimer);
             clearTimeout(removeTimer);
@@ -71,10 +71,12 @@ const Intro = ({ onOpen }) => {
             className="w-full h-full object-cover"
         />
 
-        {/* Toast con animación */}
+        {/* Toast animado en la parte superior */}
         {showToast && (
-            <div className={`fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-marron text-white text-sm px-4 py-2 rounded-xl shadow-md z-50 
-            ${fadeOut ? 'animate-fade-out' : 'animate-fade-in'}`}>
+            <div
+            className={`fixed top-4 left-1/2 transform -translate-x-1/2 bg-marron text-white text-sm px-4 py-2 rounded-xl shadow-md z-50
+                ${fadeOut ? 'animate-fade-out' : 'animate-fade-in'}`}
+            >
             🔇 En iPhone, desactiva el <strong>modo silencio</strong> (interruptor lateral) para escuchar la música.
             </div>
         )}
