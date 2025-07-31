@@ -73,12 +73,12 @@ const Intro = ({ onOpen }) => {
 
         {/* Toast animado en la parte superior */}
         {showToast && (
-            <div
-            className={`fixed top-4 left-1/2 transform -translate-x-1/2 bg-marron text-white text-sm px-4 py-2 rounded-xl shadow-md z-50
-                ${fadeOut ? 'animate-fade-out' : 'animate-fade-in'}`}
-            >
+        <div
+            className={`fixed top-4 left-1/2 transform -translate-x-1/2 w-max bg-marron/80 text-white text-sm px-4 py-2 rounded-xl shadow-md z-[999]
+            ${fadeOut ? 'animate-fade-out' : 'animate-fade-in'}`}
+        >
             🔇 En iPhone, desactiva el <strong>modo silencio</strong> (interruptor lateral) para escuchar la música.
-            </div>
+        </div>
         )}
         </div>
     );
