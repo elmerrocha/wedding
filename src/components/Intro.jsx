@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
 import envelopeAnim from '../assets/intro.json';
@@ -9,6 +9,25 @@ const Intro = ({ onOpen }) => {
     const [play] = useSound(weddingSong, { volume: 0.4 });
     const lottieRef = useRef();
     const [hasClicked, setHasClicked] = useState(false);
+    const [showToast, setShowToast] = useState(false);
+    const [fadeOut, setFadeOut] = useState(false);
+
+    // Detectar iOS y mostrar toast animado 15 segundos
+    useEffect(() => {
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (isIOS) {
+        setShowToast(true);
+        const fadeTimer = setTimeout(() => setFadeOut(true), 13000); // comienza a desvanecer a los 13s
+        const removeTimer = setTimeout(() => {
+            setShowToast(false);
+            setFadeOut(false);
+        }, 15000); // lo elimina a los 15s
+        return () => {
+            clearTimeout(fadeTimer);
+            clearTimeout(removeTimer);
+        };
+        }
+    }, []);
 
     const handleOpen = async () => {
         if (hasClicked) return;
@@ -18,7 +37,6 @@ const Intro = ({ onOpen }) => {
         await play();
         } catch (e) {
         console.warn("Audio bloqueado por el navegador:", e);
-        // No se hace nada, ya que el toast se muestra desde App.jsx en iOS
         }
 
         if (lottieRef.current) {
@@ -52,6 +70,14 @@ const Intro = ({ onOpen }) => {
             autoplay={false}
             className="w-full h-full object-cover"
         />
+
+        {/* Toast con animación */}
+        {showToast && (
+            <div className={`fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-marron text-white text-sm px-4 py-2 rounded-xl shadow-md z-50 
+            ${fadeOut ? 'animate-fade-out' : 'animate-fade-in'}`}>
+            🔇 En iPhone, desactiva el <strong>modo silencio</strong> (interruptor lateral) para escuchar la música.
+            </div>
+        )}
         </div>
     );
 };
