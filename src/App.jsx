@@ -14,24 +14,22 @@ import Tips from "./components/Tips";
 
 export default function App() {
   const [opened, setOpened] = useState(false);
-  const [audioBlocked, setAudioBlocked] = useState(false);
   const [showToast, setShowToast] = useState(false);
 
-  // Mostrar toast durante 5 segundos si se bloquea el audio
+  // Mostrar toast si es iOS
   useEffect(() => {
-    if (audioBlocked) {
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isIOS) {
       setShowToast(true);
-      const timer = setTimeout(() => {
-        setShowToast(false);
-      }, 5000);
+      const timer = setTimeout(() => setShowToast(false), 7000); // Mostrar 7 segundos
       return () => clearTimeout(timer);
     }
-  }, [audioBlocked]);
+  }, []);
 
   return (
     <>
       {!opened ? (
-        <Intro onOpen={() => setOpened(true)} setAudioBlocked={setAudioBlocked} />
+        <Intro onOpen={() => setOpened(true)} />
       ) : (
         <div className="bg-cremarustico text-verdeOscuro min-h-screen relative">
           <Header />
@@ -48,9 +46,9 @@ export default function App() {
           </main>
           <Footer />
 
-          {/* Toast flotante */}
+          {/* Toast flotante para usuarios iOS */}
           {showToast && (
-            <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-marron text-white text-sm px-4 py-2 rounded-xl shadow-md z-50 animate-fade-in">
+            <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-marron text-white text-sm px-4 py-2 rounded-xl shadow-md z-50">
               🔇 En iPhone, desactiva el <strong>modo silencio</strong> (interruptor lateral) para escuchar la música.
             </div>
           )}
