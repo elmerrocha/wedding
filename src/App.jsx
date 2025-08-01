@@ -30,8 +30,8 @@ export default function App() {
             <Reception />
             <DressCode />
             <Rsvp />
-            <Tips />
             <Gifts />
+            <Tips />
           </main>
           <Footer />
         </div>
