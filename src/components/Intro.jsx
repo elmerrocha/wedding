@@ -16,16 +16,16 @@ const Intro = ({ onOpen }) => {
     useEffect(() => {
         const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
         if (isIOS) {
-        setShowToast(true);
-        const fadeTimer = setTimeout(() => setFadeOut(true), 8000); // empieza a desvanecer a los 8s
-        const removeTimer = setTimeout(() => {
-            setShowToast(false);
-            setFadeOut(false);
-        }, 10000); // desaparece a los 10s
-        return () => {
-            clearTimeout(fadeTimer);
-            clearTimeout(removeTimer);
-        };
+            setShowToast(true);
+            const fadeTimer = setTimeout(() => setFadeOut(true), 8000); // empieza a desvanecer a los 8s
+            const removeTimer = setTimeout(() => {
+                setShowToast(false);
+                setFadeOut(false);
+            }, 10000); // desaparece a los 10s
+            return () => {
+                clearTimeout(fadeTimer);
+                clearTimeout(removeTimer);
+            };
         }
     }, []);
 
@@ -34,17 +34,17 @@ const Intro = ({ onOpen }) => {
         setHasClicked(true);
 
         try {
-        await play();
+            await play();
         } catch (e) {
         console.warn("Audio bloqueado por el navegador:", e);
         }
 
         if (lottieRef.current) {
-        lottieRef.current.play();
+            lottieRef.current.play();
         }
 
         setTimeout(() => {
-        onOpen();
+            onOpen();
         }, 2800);
     };
 
@@ -74,11 +74,12 @@ const Intro = ({ onOpen }) => {
         {/* Toast animado en la parte superior */}
         {showToast && (
             <div
-            className={`fixed top-4 left-1/2 transform -translate-x-1/2 bg-marron/80 text-white text-sm px-4 py-2 rounded-xl shadow-md z-50
-                ${fadeOut ? 'animate-fade-out' : 'animate-fade-in'}`}
+            className={`fixed top-4 left-1/2 -translate-x-1/2 transform bg-marron/80 text-white text-sm px-4 py-2 rounded-xl shadow-lg z-50
+                max-w-[90%] w-fit text-center whitespace-normal break-words`}
             >
-            🔇 En iPhone, desactiva el <strong>modo silencio</strong> (interruptor lateral) para escuchar la música.
+            🔇 <span className="font-semibold">En iPhone, desactiva el modo silencio</span> (interruptor lateral) para escuchar la música.
             </div>
+
         )}
         </div>
     );

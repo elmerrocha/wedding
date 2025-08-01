@@ -46,40 +46,21 @@ const PinterestIcon = () => (
                 <h2 className="text-6xl font-vibes text-verdeOscuro mb-10">Código de Vestimenta</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
                     <motion.div
-                        className="bg-white p-6 rounded-lg shadow-lg"
+                        className="bg-white p-6 rounded-lg shadow-2xl"
                         initial={{ opacity: 0, x: -40 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                     >
                         <Lottie animationData={dressAnim} loop className="w-32 h-32 mx-auto -mt-4" />
                         <h3 className="text-3xl font-vibes text-verdeOscuro mb-4">Mujeres</h3>
-                        <motion.div
-                            className="grid grid-cols-6 h-28 w-full max-w-lg mx-auto rounded-md my-2"
-                            variants={paletteVariant}
-                            initial="hidden"
-                            whileInView="visible"
-                            >
-                            {[
-                                ['#3B5D47', 'Verde oscuro'],
-                                ['#C16645', 'Terracota'],
-                                ['#800020', 'Burgundy'],
-                                ['#B58E00', 'Mostaza'],
-                                ['#4B6274', 'Azul pizarra'],
-                                ['#D3D3D3', 'Gris suave'],
-                            ].map(([hex, title], i) => (
-                                <motion.div
-                                    key={i}
-                                    variants={colorVariant}
-                                    whileHover={{ scale: 1.25, boxShadow: "0 10px 20px rgba(0,0,0,0.2)", zIndex: 10 }}
-                                    whileTap={{ scale: 1.25, boxShadow: "0 10px 20px rgba(0,0,0,0.2)", zIndex: 10 }}
-                                    transition={{ type: "spring", stiffness: 300 }}
-                                    className="relative transition duration-100 z-0"
-                                    style={{ backgroundColor: hex }}
-                                    title={title}
-                                />
-                            ))}
-                        </motion.div>
-
+                        <div className="grid grid-cols-6 h-28 w-full max-w-lg mx-auto rounded-md shadow-lg my-2">
+                            <div className="relative bg-[#3B5D47] transition duration-300 transform hover:scale-125 hover:shadow-2xl z-0 hover:z-10" title="Verde oscuro"></div>
+                            <div className="relative bg-[#C16645] transition duration-300 transform hover:scale-125 hover:shadow-2xl z-0 hover:z-10" title="Terracota"></div>
+                            <div className="relative bg-[#800020] transition duration-300 transform hover:scale-125 hover:shadow-2xl z-0 hover:z-10" title="Burgundy"></div>
+                            <div className="relative bg-[#B58E00] transition duration-300 transform hover:scale-125 hover:shadow-2xl z-0 hover:z-10" title="Mostaza"></div>
+                            <div className="relative bg-[#4B6274] transition duration-300 transform hover:scale-125 hover:shadow-2xl z-0 hover:z-10" title="Azul pizarra"></div>
+                            <div className="relative bg-[#D3D3D3] transition duration-300 transform hover:scale-125 hover:shadow-2xl z-0 hover:z-10" title="Gris suave"></div>
+                        </div>
                         <p className="text-marron mb-4">
                             Vestimenta formal de día. Colores sugeridos: tonos verdes oscuros, terracotas, burgundy, mostaza, azul pizarra o gris suave.
                         </p>
@@ -95,39 +76,21 @@ const PinterestIcon = () => (
                     </motion.div>
 
                     <motion.div
-                        className="bg-white p-6 rounded-lg shadow-lg"
+                        className="bg-white p-6 rounded-lg shadow-2xl"
                         initial={{ opacity: 0, x: 40 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                     >
                         <Lottie animationData={suitAnim} loop className="w-24 h-24 mx-auto mb-4" />
                         <h3 className="text-3xl font-vibes text-verdeOscuro mb-4">Hombres</h3>
-                        <motion.div
-                            className="grid grid-cols-6 h-28 w-full max-w-lg mx-auto rounded-md shadow-md my-2"
-                            variants={paletteVariant}
-                            initial="hidden"
-                            whileInView="visible"
-                            >
-                            {[
-                                ['#A1866F', 'Marrón claro'],
-                                ['#2F4F6C', 'Azul acero'],
-                                ['#556B2F', 'Verde musgo'],
-                                ['#B58E00', 'Mostaza'],
-                                ['#800020', 'Borgoña'],
-                                ['#A9A9A9', 'Gris'],
-                            ].map(([hex, title], i) => (
-                                <motion.div
-                                    key={i}
-                                    variants={colorVariant}
-                                    whileHover={{ scale: 1.25, boxShadow: "0 10px 20px rgba(0,0,0,0.2)", zIndex: 10 }}
-                                    whileTap={{ scale: 1.25, boxShadow: "0 10px 20px rgba(0,0,0,0.2)", zIndex: 10 }}
-                                    transition={{ type: "spring", stiffness: 300 }}
-                                    className="relative transition duration-100 z-0"
-                                    style={{ backgroundColor: hex }}
-                                    title={title}
-                                />
-                            ))}
-                        </motion.div>
+                        <div className="grid grid-cols-6 h-28 w-full max-w-lg mx-auto rounded-md shadow-lg my-2">
+                            <div className="relative bg-[#A1866F] transition duration-300 transform hover:scale-125 hover:shadow-2xl z-0 hover:z-10" title="Marrón claro"></div>
+                            <div className="relative bg-[#2F4F6C] transition duration-300 transform hover:scale-125 hover:shadow-2xl z-0 hover:z-10" title="Azul acero"></div>
+                            <div className="relative bg-[#556B2F] transition duration-300 transform hover:scale-125 hover:shadow-2xl z-0 hover:z-10" title="Verde musgo"></div>
+                            <div className="relative bg-[#B58E00] transition duration-300 transform hover:scale-125 hover:shadow-2xl z-0 hover:z-10" title="Mostaza"></div>
+                            <div className="relative bg-[#800020] transition duration-300 transform hover:scale-125 hover:shadow-2xl z-0 hover:z-10" title="Borgoña"></div>
+                            <div className="relative bg-[#A9A9A9] transition duration-300 transform hover:scale-125 hover:shadow-2xl z-0 hover:z-10" title="Gris"></div>
+                        </div>
 
                         <p className="text-marron mb-4">
                             Vestimenta formal de día. Colores sugeridos: marrón claro, azul acero, verde musgo, mostaza, borgoña o gris.

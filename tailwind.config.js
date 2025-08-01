@@ -7,7 +7,6 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        playfair: ['"Playfair Display"', 'serif'],
         vibes: ['"Great Vibes"', 'cursive'],
       },
       colors: {
