@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
-import envelopeAnim from '../assets/envelope.json';
 
 const Rsvp = () => {
     const [formData, setFormData] = useState({
@@ -15,8 +14,8 @@ const Rsvp = () => {
 
     const handleChange = (e) => {
         setFormData({
-        ...formData,
-        [e.target.name]: e.target.value,
+            ...formData,
+            [e.target.name]: e.target.value,
         });
     };
 
@@ -24,25 +23,30 @@ const Rsvp = () => {
         e.preventDefault();
 
         if (!formData.name) {
-        setStatus('Por favor, ingresa tu nombre.');
-        return;
+            setStatus('Por favor, ingresa tu nombre.');
+            return;
+        }
+
+        if (!formData.attendance) {
+            setStatus('Por favor, selecciona si asistirás al evento.');
+            return;
         }
 
         try {
-        const response = await fetch(
-            'https://script.google.com/macros/s/AKfycbyOcMaHHrL-X-kHzBRLrMrGG_woxKDPFGymeEO7SB0emy6CN4mRzW1zOfWoRatHDbu7/exec',
-            {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-            }
-        );
-        console.log(response);
-        setStatus('¡Gracias por confirmar tu asistencia!');
-        setFormData({ name: '', attendance: '', guests: '0', message: '' });
+            const response = await fetch(
+                'https://script.google.com/macros/s/AKfycbyOcMaHHrL-X-kHzBRLrMrGG_woxKDPFGymeEO7SB0emy6CN4mRzW1zOfWoRatHDbu7/exec',
+                {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+                }
+            );
+            console.log(response);
+            setStatus('¡Gracias por confirmar tu asistencia!');
+            setFormData({ name: '', attendance: '', guests: '0', message: '' });
         } catch (error) {
             console.log(error);
             setStatus('Hubo un error. Intenta de nuevo más tarde.');
@@ -57,7 +61,7 @@ const Rsvp = () => {
         transition={{ duration: 2.0 }}
         viewport={{ once: true }}
         >
-        <Lottie animationData={envelopeAnim} loop className="w-36 h-36 mx-auto mb" />
+        <Lottie path={'/lotties/envelope.json'} loop autoplay className="w-36 h-36 mx-auto mb" />
         <h2 className="text-5xl text-verdeOscuro font-vibes mb-8">Confirmar asistencia</h2>
         <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-4">
             <input

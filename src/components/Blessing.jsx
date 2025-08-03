@@ -2,7 +2,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
-import doveAnim from '../assets/dove.json';
 
 export default function Blessing() {
     return (
@@ -13,7 +12,7 @@ export default function Blessing() {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
         >
-        <Lottie animationData={doveAnim} loop className="w-full md:w-96 h-full md:h-96 mx-auto -my-10" />
+        <Lottie path={'/lotties/dove.json'} loop autoplay className="w-full md:w-96 h-full md:h-96 mx-auto -my-10" />
         <h2 className="text-5xl md:text-5xl font-vibes leading-tight mb-12">
             Con la bendición de Dios y nuestros queridos padres…
         </h2>

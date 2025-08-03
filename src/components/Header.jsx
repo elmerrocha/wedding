@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
-import heartAnim from '../assets/heartbeat.json';
 
 const Header = () => {
     return (
@@ -19,7 +18,7 @@ const Header = () => {
         <p className="text-4xl font-vibes text-marron max-w-xl mx-auto">
             Nos casamos y queremos compartir este momento inolvidable contigo
         </p>
-        <Lottie animationData={heartAnim} loop className="w-80 h-80 mx-auto -my-20" />
+        <Lottie path={'/lotties/heartbeat.json'} loop autoplay className="w-80 h-80 mx-auto -my-20" />
         <p className="font-vibes text-6xl text-verdeOscuro mt-10">11 de enero, 2026</p>
         </motion.header>
     );

@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import churchAnim from '../assets/church.json';
 import Lottie from 'lottie-react';
 
 export default function Ceremony() {
@@ -16,7 +15,7 @@ export default function Ceremony() {
             alt="Church"
             className="w-full max-w-xl mx-auto mb-10"
         />
-        <Lottie animationData={churchAnim} loop className="w-52 h-52 mx-auto" />
+        <Lottie path={'/lotties/church.json'} loop autoplay className="w-52 h-52 mx-auto" />
         <h2 className="text-6xl font-vibes text-verdeOscuro my-4">Ceremonia</h2>
         <p className="text-4xl font-vibes">
             Casa Sacerdotal San José<br />Floridablanca, Colombia

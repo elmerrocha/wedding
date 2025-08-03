@@ -3,9 +3,7 @@ import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
-import giftAnim from '../assets/gift.json';
 import qrImage from '../assets/qr.webp';
-import qrScan from '../assets/qrScan.json';
 import bankInfo from '../assets/bank.webp'
 
 const Gifts = () => {
@@ -20,7 +18,7 @@ const Gifts = () => {
         transition={{ duration: 1.0 }}
         viewport={{ once: true }}
         >
-        <Lottie animationData={giftAnim} loop className="w-40 h-40 mx-auto mb-4" />
+        <Lottie path={'/lotties/gift.json'} loop autoplay className="w-40 h-40 mx-auto mb-4" />
         <h2 className="text-6xl font-vibes text-verdeOscuro mb-6">Regalos</h2>
 
         <p className="text-marron font-medium max-w-xl mx-auto mb-6">
@@ -57,7 +55,7 @@ const Gifts = () => {
             <p className="text-marron font-medium"><strong>A nombre de:</strong> Elmer Rocha</p>
             <p className="text-marron font-medium"><strong>Código QR</strong></p>
 
-            <Lottie animationData={qrScan} onClick={() => setOpen(true)} loop className="w-32 h-32 mx-auto" />
+            <Lottie path={'/lotties/qrScan.json'} onClick={() => setOpen(true)} loop autoplay className="w-32 h-32 mx-auto" />
 
             <p className="text-marron font-medium italic mt-4">¡Gracias por tu cariño y generosidad! 💛</p>
         </div>
