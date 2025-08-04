@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
+// import photoIcon from '../assets/camera.json';
+import photoIcon from '../assets/camera.js';
 import Lottie from 'lottie-react';
 
 const photos = [
@@ -25,7 +27,7 @@ const Gallery = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
         >
-        <Lottie path={'/lotties/camera.json'} loop autoplay className="w-80 h-80 mx-auto -mb-24 -mt-24" />
+        <Lottie animationData={photoIcon} loop className="w-80 h-80 mx-auto -mb-24 -mt-24" />
         <h2 className="text-6xl text-center font-vibes text-verdeOscuro mb-10 -mt-24">
             Nuestros momentos
         </h2>

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
+import celebrationAnim from '../assets/celebration.json';
 
 export default function Reception() {
     return (
@@ -10,7 +11,7 @@ export default function Reception() {
         transition={{ duration: 1.0 }}
         viewport={{ once: true }}
         >
-        <Lottie path={'/lotties/celebration.json'} loop autoplay className="w-52 h-52 mx-auto" />
+        <Lottie animationData={celebrationAnim} loop className="w-52 h-52 mx-auto" />
         <h2 className="text-6xl font-vibes text-verdeOscuro my-4">Recepción</h2>
         <p className="text-4xl font-vibes">
             Hacienda El Ensueño<br />Ruitoque Alto

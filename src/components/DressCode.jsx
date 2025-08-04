@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
+import dressAnim from '../assets/dress.json';
+import suitAnim from '../assets/suit.json';
+import colorPalette from '../assets/palette.json';
 
 const PinterestIcon = () => (
     <svg
@@ -22,7 +25,7 @@ const PinterestIcon = () => (
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
             >
-                <Lottie path={'/lotties/palette.json'} loop autoplay className="w-48 h-48 mx-auto mb-10" />
+                <Lottie animationData={colorPalette} loop className="w-48 h-48 mx-auto mb-10" />
                 <h2 className="text-6xl font-vibes text-verdeOscuro mb-10">Código de Vestimenta</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
                     <motion.div
@@ -31,7 +34,7 @@ const PinterestIcon = () => (
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <Lottie path={'/lotties/dress.json'} autoplay loop className="w-32 h-32 mx-auto -mt-4" />
+                        <Lottie animationData={dressAnim} loop className="w-32 h-32 mx-auto -mt-4" />
                         <h3 className="text-3xl font-vibes text-verdeOscuro mb-4">Mujeres</h3>
                         <div className="flex min-w-0 h-28 w-full max-w-lg mx-auto rounded-md shadow-lg my-2 overflow-visible">
                             {[
@@ -69,7 +72,7 @@ const PinterestIcon = () => (
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <Lottie path={'/lotties/suit.json'} loop autoplay className="w-24 h-24 mx-auto mb-4" />
+                        <Lottie animationData={suitAnim} loop className="w-24 h-24 mx-auto mb-4" />
                         <h3 className="text-3xl font-vibes text-verdeOscuro mb-4">Hombres</h3>
                         <div className="flex min-w-0 h-28 w-full max-w-lg mx-auto rounded-md shadow-lg my-2 overflow-visible">
                             {[

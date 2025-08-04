@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
+import envelopeAnim from '../assets/intro.json';
 import useSound from 'use-sound';
 import weddingSong from '../assets/wedding-song.mp3';
 
@@ -8,8 +9,10 @@ const Intro = ({ onOpen }) => {
     const [play] = useSound(weddingSong, { volume: 0.4 });
     const lottieRef = useRef();
     const [hasClicked, setHasClicked] = useState(false);
-    const [showToast, setShowToast, setFadeOut] = useState(false);
+    const [showToast, setShowToast] = useState(false);
+    const [fadeOut, setFadeOut] = useState(false);
 
+    // Detectar iOS y mostrar toast por 10s con animación
     useEffect(() => {
         const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
         if (isIOS) {
@@ -29,20 +32,25 @@ const Intro = ({ onOpen }) => {
     const handleOpen = async () => {
         if (hasClicked) return;
         setHasClicked(true);
+
         try {
             await play();
         } catch (e) {
-            console.warn("Audio bloqueado por el navegador:", e);
+        console.warn("Audio bloqueado por el navegador:", e);
         }
+
         if (lottieRef.current) {
             lottieRef.current.play();
         }
+
         setTimeout(() => {
             onOpen();
         }, 2800);
     };
+
     return (
         <div className="relative h-screen w-full bg-cremarustico flex justify-center items-center overflow-hidden">
+        {/* Texto principal */}
         <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -52,14 +60,18 @@ const Intro = ({ onOpen }) => {
         >
             Pulsa para abrir
         </motion.p>
+
+        {/* Animación */}
         <Lottie
             lottieRef={lottieRef}
-            path={'/lotties/intro.json'}
+            animationData={envelopeAnim}
             loop
             onClick={handleOpen}
             autoplay={false}
             className="w-full h-full object-cover"
         />
+
+        {/* Toast animado en la parte superior */}
         {showToast && (
             <div
             className={`fixed top-4 left-1/2 -translate-x-1/2 transform bg-marron/80 text-white text-sm px-4 py-2 rounded-xl shadow-lg z-50
@@ -67,6 +79,7 @@ const Intro = ({ onOpen }) => {
             >
             🔇 <span className="font-semibold">En iPhone, desactiva el modo silencio</span> (interruptor lateral) para escuchar la música.
             </div>
+
         )}
         </div>
     );

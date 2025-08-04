@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
+import envelopeAnim from '../assets/envelope.json';
 
 const Rsvp = () => {
     const [formData, setFormData] = useState({
@@ -61,7 +62,7 @@ const Rsvp = () => {
         transition={{ duration: 2.0 }}
         viewport={{ once: true }}
         >
-        <Lottie path={'/lotties/envelope.json'} loop autoplay className="w-36 h-36 mx-auto mb" />
+        <Lottie animationData={envelopeAnim} loop className="w-36 h-36 mx-auto mb" />
         <h2 className="text-5xl text-verdeOscuro font-vibes mb-8">Confirmar asistencia</h2>
         <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-4">
             <input
