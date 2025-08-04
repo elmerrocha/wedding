@@ -1,9 +1,7 @@
-// src/components/Blessing.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
-// import doveAnim from '../assets/dove.json';
-import doveAnim from '../assets/dove.js';
+import doveAnim from '../assets/dove.json';
 
 export default function Blessing() {
     return (

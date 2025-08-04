@@ -2,8 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Lottie from 'lottie-react';
 import clockAnim from '../assets/clock.json';
-// import partyAnim from '../assets/party.json';
-import partyAnim from '../assets/party.js';
+import partyAnim from '../assets/party.json';
 import teddyAnim from '../assets/teddy.json';
 import envelopeAnim from '../assets/envelopeInvitation.json';
 import infoAnim from '../assets/information.json'

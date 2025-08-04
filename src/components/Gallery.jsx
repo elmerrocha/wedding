@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 // import photoIcon from '../assets/camera.json';
-import photoIcon from '../assets/camera.js';
+// import photoIcon from '../assets/camera.js';
+import photoIconRaw from '../assets/camera.json?raw';
+const photoIcon = JSON.parse(photoIconRaw);
 import Lottie from 'lottie-react';
 
 const photos = [
