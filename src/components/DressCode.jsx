@@ -54,7 +54,7 @@ const PinterestIcon = () => (
                             ))}
                         </div>
                         <p className="text-marron mb-4">
-                            Vestimenta formal de día. Colores sugeridos: tonos verdes oscuros, terracotas, burgundy, mostaza, azul pizarra o gris suave.
+                            Vestimenta formal de día. Colores rústicos, sugeridos: tonos verdes oscuros, terracotas, burgundy, mostaza, azul pizarra o gris suave.
                         </p>
                         <a
                             href="https://pin.it/2w7FYGUSj"
@@ -92,7 +92,7 @@ const PinterestIcon = () => (
                             ))}
                         </div>
                         <p className="text-marron mb-4">
-                            Vestimenta formal de día. Colores sugeridos: marrón claro, azul acero, verde musgo, mostaza, borgoña o gris.
+                            Vestimenta formal de día. Colores rústicos, sugeridos: marrón claro, azul acero, verde musgo, mostaza, borgoña o gris.
                         </p>
                         <a
                             href="https://pin.it/6HbQBXqCi"
