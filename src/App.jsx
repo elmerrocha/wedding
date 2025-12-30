@@ -9,7 +9,6 @@ import Gifts from './components/Gifts';
 import Header from "./components/Header";
 import Intro from "./components/Intro";
 import Reception from "./components/Reception";
-import Rsvp from "./components/Rsvp";
 import Tips from "./components/Tips";
 
 export default function App() {
@@ -29,7 +28,6 @@ export default function App() {
             <Ceremony />
             <Reception />
             <DressCode />
-            <Rsvp />
             <Gifts />
             <Tips />
           </main>

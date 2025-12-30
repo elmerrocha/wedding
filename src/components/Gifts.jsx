@@ -38,7 +38,7 @@ const Gifts = () => {
             <div
                 className="cursor-pointer select-none flex items-center justify-center gap-2 text-marron font-medium"
                 onClick={() => {
-                navigator.clipboard.writeText('@elmer680');
+                navigator.clipboard.writeText('0091156515');
                 setCopiedBreB(true);
                 setCopiedAccount(false);
                 setTimeout(() => setCopiedBreB(false), 3000);
@@ -50,7 +50,7 @@ const Gifts = () => {
                     className="w-10 h-10 rounded-full object-contain"
                 />
                 <span>
-                    <strong>@elmer680</strong>
+                    <strong>0091156515</strong>
                 </span>
             </div>
 
@@ -106,41 +106,6 @@ const Gifts = () => {
             loop
             className="w-32 h-32 mx-auto cursor-pointer"
             />
-
-            {/* Bre-B */}
-            {/* <div className="mt-6 border-t border-cremarustico pt-4">
-                <h4 className="font-medium text-verdeOscuro text-lg mb-2">
-                    Transferencia por Bre-B
-                </h4>
-
-                <div
-                    className="cursor-pointer select-none flex items-center justify-center gap-2 text-marron font-medium"
-                    onClick={() => {
-                    navigator.clipboard.writeText('@elmer680');
-                    setCopiedBreB(true);
-                    setCopiedAccount(false);
-                    setTimeout(() => setCopiedBreB(false), 3000);
-                    }}
-                >
-                    <img
-                        src={brebLogo}
-                        alt="Bre-B"
-                        className="w-7 h-7 rounded-full object-contain"
-                    />
-                    <span>
-                        <strong>@elmer680</strong>
-                    </span>
-                </div>
-
-                {copiedBreB && (
-                    <>
-                    <p className="animate-bounce text-3xl mt-1">✔️</p>
-                    <p className="text-verdeClaro font-bold mt-1 animate-pulse">
-                        ¡Usuario Bre-B copiado!
-                    </p>
-                    </>
-                )}
-            </div> */}
 
             <p className="text-marron font-medium italic mt-4">
             ¡Gracias por tu cariño y generosidad! 💛
