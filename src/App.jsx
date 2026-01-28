@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Blessing from "./components/Blessing";
 import Ceremony from "./components/Ceremony";
-import Countdown from "./components/Countdown";
 import DressCode from "./components/DressCode";
 import Footer from "./components/Footer";
 import Gallery from "./components/Gallery";
@@ -23,7 +22,6 @@ export default function App() {
           <Header />
           <Blessing />
           <main className="space-y-10 p-4 max-w-4xl mx-auto">
-            <Countdown />
             <Gallery />
             <Ceremony />
             <Reception />
